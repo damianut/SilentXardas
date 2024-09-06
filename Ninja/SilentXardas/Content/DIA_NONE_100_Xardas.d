@@ -1,8 +1,8 @@
-instance Ninja_SilentXardas_DIA_Xardas_Hello(C_INFO)
+// Start the first dialogue only, when Xardas is in ZS_Talk, so when player clicked him.
+func int Ninja_SilentXardas_DIA_Xardas_Hello_Condition()
 {
-	npc				= NONE_100_Xardas;
-	nr				= 1;
-	condition		= DIA_Xardas_Hello_Condition;
-	information		= DIA_Xardas_Hello_Info;
-	important		= FALSE;
+    if (true == Npc_IsInState(self, ZS_TALK))
+    {
+        return TRUE;
+    };
 };
