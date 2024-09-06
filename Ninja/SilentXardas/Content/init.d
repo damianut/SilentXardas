@@ -5,5 +5,5 @@ func void Ninja_SilentXardas_Init() {
     LeGo_MergeFlags( /* DESIRED LEGO PACKAGES */ );
 
     // WRITE YOUR INITIALIZATIONS HERE
-
+    Ninja_SilentXardas_HookDaedalusFunc_Init();
 };
