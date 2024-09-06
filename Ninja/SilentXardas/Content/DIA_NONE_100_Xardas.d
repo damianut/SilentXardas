@@ -3,8 +3,8 @@ func int Ninja_SilentXardas_DIA_Xardas_Hello_Condition()
 {
     if (MEM_FindParserSymbol("ZS_TALK") != -1) {
         // Push any necessary arguments onto the stack in the order of the function's parameters
-        MEM_PushInstParam(MEM_FindParserSymbol("ZS_TALK"));
-        MEM_PushInstParam(hero);
+        MEM_PushInstParam(self);
+        MEM_PushIntParam(MEM_FindParserSymbol("ZS_TALK"));
         
         // Call the function in a safe way
         MEM_CallByString("NPC_ISINSTATE");
