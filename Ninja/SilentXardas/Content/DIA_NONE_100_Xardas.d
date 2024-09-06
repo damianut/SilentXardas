@@ -2,11 +2,17 @@
 func int Ninja_SilentXardas_DIA_Xardas_Hello_Condition()
 {
     if (MEM_FindParserSymbol("ZS_TALK") != -1) {
-        if (true == Npc_IsInState(self, ZS_TALK))
-        {
-            return TRUE;
-        };
+        // Push any necessary arguments onto the stack in the order of the function's parameters
+        MEM_PushInstParam(MEM_FindParserSymbol("ZS_TALK"));
+        MEM_PushInstParam(hero);
+        
+        // Call the function in a safe way
+        MEM_CallByString("NPC_ISINSTATE");
+        
+        // Use the returned value
+        return MEM_PopIntResult();
     } else {
-        return TRUE;
+        // Optionally provide a fallback if the function does not exist
+        return true;
     };
 };
