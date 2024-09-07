@@ -9,10 +9,12 @@ func int Ninja_SilentXardas_DIA_Xardas_Hello_Condition()
         // Call the function in a safe way
         MEM_CallByString("NPC_ISINSTATE");
         
-        // Use the returned value
-        return MEM_PopIntResult();
-    } else {
-        // Optionally provide a fallback if the function does not exist
-        return true;
+        // Cancel only if condition is not met otherwise continue with more conditions
+        if (!MEM_PopIntResult()) {
+            return false;
+        };
     };
+    
+    // Continue with the original function (and its return value)
+    ContinueCall();
 };
